@@ -43,7 +43,7 @@ const Board: React.FC = () => {
   }, [board]);
 
   return (
-    <div className="board w-100 text-center">
+    <div className="board w-75 mx-auto text-center">
       <h1 className="text-center my-5">Tic Tac Toe</h1>
       <div className="d-flex align-items-center justify-content-center">
         <div className="row w-50">
@@ -60,7 +60,7 @@ const Board: React.FC = () => {
         </div>
       </div>
       {result.winner && !isShowModal && (
-        <button className="btn btn-primary mt-4" onClick={handleRestart}>
+        <button className="btn btn-primary btn-sm mt-4" onClick={handleRestart}>
           Restart
         </button>
       )}
