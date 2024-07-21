@@ -1,0 +1,26 @@
+.notify-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  z-index: 1000;
+  transition: all 0.2s linear;
+  &__content {
+    max-width: 75%;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 100%);
+    transition: all 0.2s linear;
+  }
+  &.notify-modal--show {
+    background-color: rgba(0, 0, 0, 0.5);
+    .notify-modal__content {
+      bottom: 50%;
+      left: 50%;
+      transform: translate(-50%, 50%);
+    }
+  }
+}
