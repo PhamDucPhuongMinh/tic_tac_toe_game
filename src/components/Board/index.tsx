@@ -27,6 +27,7 @@ const Board: React.FC = () => {
     setBoard(Array(9).fill(null));
     setPlayer("x");
     setResult({ winner: null, line: [] });
+    setIsShowModal(false);
   };
 
   useEffect(() => {
