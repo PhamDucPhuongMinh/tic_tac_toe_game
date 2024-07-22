@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Cell from "../Cell";
 import { CellValue, ResultType } from "../../types";
-import "./index.scss";
 import { checkWinner } from "../../helper";
 import Modal from "../Modal";
 
