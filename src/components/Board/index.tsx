@@ -11,6 +11,26 @@ const Board: React.FC = () => {
   const [isShowModal, setIsShowModal] = useState(false);
   const [indexJustClicked, setIndexJustClicked] = useState<number | null>(null);
 
+  const handleShare = async () => {
+    // Kiểm tra xem trình duyệt có hỗ trợ Web Share API không
+    if (navigator.share) {
+      try {
+        // Dữ liệu cần chia sẻ
+        await navigator.share({
+          title: "Tiêu đề cần chia sẻ",
+          text: "Đây là văn bản để chia sẻ",
+          url: "https://example.com", // URL bạn muốn chia sẻ
+        });
+        console.log("Chia sẻ thành công!");
+      } catch (error) {
+        console.error("Chia sẻ thất bại:", error);
+      }
+    } else {
+      alert("Trình duyệt của bạn không hỗ trợ tính năng chia sẻ này.");
+    }
+  };
+
+
   const handleClickCell = (index: number) => {
     if (result.winner) {
       return;
@@ -45,6 +65,7 @@ const Board: React.FC = () => {
   return (
     <div className="board w-75 mx-auto text-center">
       <h1 className="text-center my-5">Tic Tac Toe</h1>
+      <button onClick={handleShare}>Share</button>
       <div className="d-flex align-items-center justify-content-center">
         <div className="row w-50">
           {board.map((item, index) => (
